@@ -5,10 +5,12 @@ links:
   - "[[MOC WriteUps]]"
 ---
 
-![[20241103010504.png]]
+![](20241103010504.png)
+
 # Vending Machine
 First we try writing soda to understand how it works. When u right soda/chips it prints “dropping soda/chips…”. and the product img is dropping from the vending machine pic.
 ![](20241102065209.png)
+
 Then i tried to see the source and i found a JS file that contains where `product` is a map for some defined products (where they their images on the server)
 ```javascript
 setTimeout(async () => {
@@ -52,6 +54,7 @@ Here i was likely thinking it’s something like a php injection :)
 Any way when i searched to understand what NoSQLi is i tried some payloads and it didn’t work at all even the SQLi i used.
 Then when i tried to add a null byte `%00` it ruined the app and gave me this
 ![](20241102070527.png)
+
 As u can see the app is using `shell_exec($command)` where the `$command` is the `product` in our request.
 Sooooo i got that there is a command injection here (where i didn’t learn yet).
 I tried some basic command and all of them r disappearing, i thought i should use a different type of dealing with the server but there wasn’t.
@@ -76,7 +79,8 @@ So when catting `entrypoint.sh` we found there this script
 #!/bin/sh
 echo "$FLAG" > /home/apache/flag && chmod 644 /home/apache/flag && apache2-foreground
 ```
-Now we can peacfully get the flag by `f=ca;l=t;$f$l$IFS"/home/apache/flag"`
+Now we can peacfully get the flag by `f=ca;l=t;$f$l$IFS"/home/apache/flag"` 
 ![](20241102071920.png)
+
 The flag: `CYCTF{C1luQGN9pX6LsTDdJKsAb_KWSBYKw4Q08tW0fii6jrStt319uC3PolHeR8joQYnvZTn4SRESYI3JWhWww70Hcm4xzj7kg33tZ0pYG35uQTGuFw}`
 
