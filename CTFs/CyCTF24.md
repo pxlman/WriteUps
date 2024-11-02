@@ -52,7 +52,8 @@ at the first i tried many rabbit holes like XSS and SQLi, i stayed alot trying a
 i tried to inject a php code thinking it may work but i found that when i send `echo` with a non alphabatic after and before it it disappears.
 Here i was likely thinking it’s something like a php injection :)
 Any way when i searched to understand what NoSQLi is i tried some payloads and it didn’t work at all even the SQLi i used.
-Then when i tried to add a null byte `%00` it ruined the app and gave me this
+Then when i tried to add a null byte `%00` it ruined the app and gave me this.
+
 ![](20241102070527.png)
 
 As u can see the app is using `shell_exec($command)` where the `$command` is the `product` in our request.
