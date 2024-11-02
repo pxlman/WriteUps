@@ -81,6 +81,7 @@ So when catting `entrypoint.sh` we found there this script
 echo "$FLAG" > /home/apache/flag && chmod 644 /home/apache/flag && apache2-foreground
 ```
 Now we can peacfully get the flag by `f=ca;l=t;$f$l$IFS"/home/apache/flag"` 
+
 ![](20241102071920.png)
 
 The flag: `CYCTF{C1luQGN9pX6LsTDdJKsAb_KWSBYKw4Q08tW0fii6jrStt319uC3PolHeR8joQYnvZTn4SRESYI3JWhWww70Hcm4xzj7kg33tZ0pYG35uQTGuFw}`
